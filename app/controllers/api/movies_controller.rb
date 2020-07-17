@@ -33,6 +33,6 @@ class Api::MoviesController < ApplicationController
   def destroy
     @movie = Movie.find_by(id: params[:id])
     @movie.destroy
-    render json: {message: "You're movie has been removed from production."}
+    render json: {message: "Your movie has been removed from production."}
   end
 end
