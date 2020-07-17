@@ -29,4 +29,10 @@ class Api::MoviesController < ApplicationController
     @movie.save
     render 'show.json.jb'
   end
+
+  def destroy
+    @movie = Movie.find_by(id: params[:id])
+    @movie.destroy
+    render json: {message: "You're movie has been removed from production."}
+  end
 end
