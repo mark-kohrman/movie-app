@@ -1,0 +1,3 @@
+{
+  errors: @movie.errors.full_messages
+}

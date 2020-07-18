@@ -18,8 +18,11 @@ class Api::ActorsController < ApplicationController
       age: params[:age],
       gender: params[:gender] 
     )
-    @actor.save
-    render 'show.json.jb'
+    if @actor.save
+      render 'show.json.jb'
+    else
+      render 'errors.json.jb'
+    end
   end
 
   def update

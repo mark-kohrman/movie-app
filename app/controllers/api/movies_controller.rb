@@ -9,7 +9,7 @@ class Api::MoviesController < ApplicationController
     render 'show.json.jb'
   end
 
-  def create
+  def create  
     @movie = Movie.new(
       title: params[:title],
       year: params[:year],
@@ -17,8 +17,11 @@ class Api::MoviesController < ApplicationController
       director: params[:director],
       english: params[:english]
     )
-    @movie.save
-    render 'show.json.jb'
+    if @movie.save
+      render 'show.json.jb'
+    else
+      render 'errors.json.jb'
+    end
   end
 
   def update
